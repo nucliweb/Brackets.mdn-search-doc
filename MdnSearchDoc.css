@@ -1,0 +1,15 @@
+/* Toolbar icon */
+#mdnsearchdoc-viewer-icon {
+    background: url(mdnsearchdoc-sprite.svg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+#mdnsearchdoc-viewer-icon.active {
+    background-position: 0 -24px !important;
+}
+
+/* MDN Search Doc panel */
+#mdnsearchdoc-viewer-iframe {
+    background: white;
+}
