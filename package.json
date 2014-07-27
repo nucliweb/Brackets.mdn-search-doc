@@ -1,8 +1,8 @@
 {
     "name": "nucliweb.mdn-doc",
-    "title": "MDN Doc",
+    "title": "MDN Search Doc",
     "description": "Brackets Extension for consult the documentation in the Mozilla Developer Network",
-    "homepage": "https://github.com/nucliweb/Brackets.mdn-doc",
+    "homepage": "https://github.com/nucliweb/Brackets.mdn-search-doc",
     "version": "0.1.1",
     "author": "Joan Leon <joan.leon@gmail.com> (http://github.com/nucliweb)",
     "license": "MIT",
