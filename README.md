@@ -23,6 +23,7 @@ Thanks to [@mozilla](http://twitter.com/mozilla) for the [great content](http://
 ## Version History
 
 - 27/07/2014 v0.1.0 - Initial release.
+- 30/07/2014 v0.1.3 - Fix bug.
 
 ##ToDo
 

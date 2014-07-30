@@ -56,10 +56,7 @@ define(function (require, exports, module) {
         if (!editor) {
             return;
         }
-        if (!editor.hasSelection()) {
-            customSelectWordAt(editor.getSelection().start);
-            console.log(editor.selectWordAt(editor.getSelection().start));
-        }
+
         query = editor.getSelectedText();
         
         if (query) {
@@ -70,25 +67,7 @@ define(function (require, exports, module) {
         
     }
 
-    function customSelectWordAt(pos) {
-        var line = editor.getLine(pos.line),
-            start = pos.ch,
-            end = pos.ch;
-        
-        function isWordChar(ch) {
-            return (/\w/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
-        }
-        
-        while (start > 0 && isWordChar(line.charAt(start - 1))) {
-            --start;
-        }
-        while (end < line.length && isWordChar(line.charAt(end))) {
-            ++end;
-        }
-        this.setSelection({line: pos.line, ch: start}, {line: pos.line, ch: end});
-    };
-    
-    
+   
     // Insert CSS for this extension
     ExtensionUtils.loadStyleSheet(module, "MdnSearchDoc.css");
     
