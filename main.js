@@ -35,43 +35,50 @@ define(function (require, exports, module) {
         Menus               = brackets.getModule("command/Menus"),
         NativeApp           = brackets.getModule("utils/NativeApp"),
         PanelManager        = brackets.getModule("view/PanelManager");
-    
-    
+
+
     // Constants
     var NAVIGATE_LOOKUP_IN_MDN  = "Lookup in MDN",
         CMD_LOOKUP_IN_MDNDOC    = "nucliweb.lookupInMdnDoc";
-    
+
     // jQuery objects
     var $icon;
-    
+
     // Other vars
     var query,
         language = "en-US";
-        
+
     function _loadDocumentation() {
-        
-        var url = "http://developer.mozilla.org/"+language+"/search";
-        var editor = EditorManager.getActiveEditor();
-        
+
+        var url = "http://developer.mozilla.org/"+language+"/search",
+            editor = EditorManager.getActiveEditor(),
+            sel;
+
         if (!editor) {
-            return;
+            return null;
+        }
+
+
+        sel = editor.getSelection();
+        if (sel.start.line !== sel.end.line) {
+            return null;
         }
 
         query = editor.getSelectedText();
-        
+
         if (query) {
             url += "?q=" + query;
         }
 
         NativeApp.openURLInDefaultBrowser(url);
-        
+
     }
 
-   
+
     // Insert CSS for this extension
     ExtensionUtils.loadStyleSheet(module, "MdnSearchDoc.css");
-    
-    // Add toolbar icon 
+
+    // Add toolbar icon
     $icon = $("<a>")
         .attr({
             id: "mdnsearchdoc-viewer-icon",
@@ -80,14 +87,14 @@ define(function (require, exports, module) {
         })
         .click(_loadDocumentation)
         .appendTo($("#main-toolbar .buttons"));
-    
-    
+
+
     // Add "Lookup in MDN Doc" command
     function _handleLookupInMdnDoc() {
         _loadDocumentation();
     }
-    
-    
+
+
     // Register the command and shortcut
     CommandManager.register(
         NAVIGATE_LOOKUP_IN_MDN,
@@ -95,7 +102,7 @@ define(function (require, exports, module) {
         _handleLookupInMdnDoc
     );
     KeyBindingManager.addBinding(CMD_LOOKUP_IN_MDNDOC, "Shift-Ctrl-M");
-    
+
     // Create a menu item bound to the command
     var menu = Menus.getMenu(Menus.AppMenuBar.NAVIGATE_MENU);
     menu.addMenuItem(CMD_LOOKUP_IN_MDNDOC);
