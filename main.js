@@ -66,9 +66,11 @@ define(function (require, exports, module) {
 
         query = editor.getSelectedText();
 
-        if (query) {
-            url += "?q=" + query;
+        if (!query) {
+            editor.selectWordAt(sel.start);
+            query = editor.getSelectedText();
         }
+        url += "?q=" + query;
 
         NativeApp.openURLInDefaultBrowser(url);
 
