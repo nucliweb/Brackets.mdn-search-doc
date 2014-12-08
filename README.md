@@ -1,6 +1,6 @@
 ## MDN Search Doc
 
-This is a [Brackets](http://brackets.io) extension for searching [MDN](http://developer.mozilla.org/en-US/search) documentation. 
+This is a [Brackets](http://brackets.io) extension for searching [MDN](http://developer.mozilla.org/en-US/search) documentation.
 
 ## Installation
 
@@ -24,6 +24,8 @@ Thanks to [@mozilla](http://twitter.com/mozilla) for the [great content](http://
 
 - 27/07/2014 v0.1.0 - Initial release.
 - 30/07/2014 v0.1.3 - Fix bug.
+- 09/11/2014 v0.2.0 - Public release.
+- 08/12/2014 v0.3.0 - Allow querying the word at current cursor position (thanks to [Danny Moerkerke](https://github.com/DannyMoerkerke)).
 
 ##ToDo
 
